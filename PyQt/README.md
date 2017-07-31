@@ -2,7 +2,7 @@ Required: python 2.7, PyQt4
 
 After PyQt4 installed, design graphic user interface with Qt Desinger.
 
-Save the GUI configuration, which is a XML with .ui postfix file.
+Save the GUI configuration, which is an XML with .ui postfixed file.
 
 Below is an example of loading GUI configuraiton:
 
@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
 ```
 
-Add routines to response user behaviors from user.
+Add routines to response behaviors from user.
 
 
 --END--
