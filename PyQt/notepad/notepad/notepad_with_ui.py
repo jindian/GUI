@@ -1,3 +1,4 @@
+#!/usr/bin/python
 
 import sys
 from PyQt4 import QtGui, QtCore, uic
@@ -51,39 +52,84 @@ class Notepad(QtGui.QMainWindow, Ui_MainWindow):
     # Operation reponse routines start from here
     def newResp(self):
         print sys._getframe().f_code.co_name
+        
+        newWin = Notepad()
+        newWin.show()
 
     def openResp(self):
         print sys._getframe().f_code.co_name
 
+        self.file = QtGui.QFileDialog.getOpenFileName(self, 'Open File', ".", "(*.*)")
+        if self.file:
+            with open(self.file, "rt") as file:
+                self.textEdit.setText(file.read())
+
     def saveResp(self):
         print sys._getframe().f_code.co_name
 
+        if not self.file:
+            self.file = QtGui.QFileDialog.getSaveFileName(self, 'Save File')
+
+        with open(self.file, "wt") as file:
+            file.write(self.textEdit.toPlainText())
+
     def printResp(self):
         print sys._getframe().f_code.co_name
+        
+        dialog = QtGui.QPrintDialog()
+        dialog.setWindowTitle(self.file)
+
+        if dialog.exec_() == QtGui.QDialog.Accepted:
+            self.textEdit.document().print_(dialog.printer())
 
     def previewResp(self):
         print sys._getframe().f_code.co_name
 
+        preview = QtGui.QPrintPreviewDialog()
+        preview.setWindowTitle(self.file)
+
+        preview.paintRequested.connect(lambda p: self.textEdit.print_(p))
+        
+        preview.exec_()
+
     def cutResp(self):
         print sys._getframe().f_code.co_name
+
+        self.textEdit.cut()
 
     def copyResp(self):
         print sys._getframe().f_code.co_name
 
+        self.textEdit.copy()
+
     def pasteResp(self):
         print sys._getframe().f_code.co_name
+
+        self.textEdit.paste()
 
     def undoResp(self):
         print sys._getframe().f_code.co_name
 
+        self.textEdit.undo()
+
     def redoResp(self):
         print sys._getframe().f_code.co_name
+
+        self.textEdit.redo()
 
     def bulletResp(self):
         print sys._getframe().f_code.co_name
 
+        cursor = self.textEdit.textCursor()
+
+        cursor.insertList(QtGui.QTextListFormat.ListDisc)
+
     def numberResp(self):
         print sys._getframe().f_code.co_name
+
+        cursor = self.textEdit.textCursor()
+
+        cursor.insertList(QtGui.QTextListFormat.ListDecimal)
 
     def cursorPositionResp(self):
         print sys._getframe().f_code.co_name
