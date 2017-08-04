@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>969</width>
+    <width>942</width>
     <height>696</height>
    </rect>
   </property>
@@ -28,7 +28,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-4</y>
+      <y>0</y>
       <width>971</width>
       <height>651</height>
      </rect>
@@ -43,7 +43,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>969</width>
+     <width>942</width>
      <height>26</height>
     </rect>
    </property>
@@ -103,7 +103,7 @@
    <addaction name="actionPaste"/>
    <addaction name="actionUndo"/>
    <addaction name="actionRedo"/>
-   <addaction name="actionInsertBuuletList"/>
+   <addaction name="actionInsertBulletList"/>
    <addaction name="actionInsertNumberedList"/>
    <addaction name="separator"/>
   </widget>
@@ -120,6 +120,15 @@
    <attribute name="toolBarBreak">
     <bool>true</bool>
    </attribute>
+   <addaction name="actionFontColor"/>
+   <addaction name="actionBackColor"/>
+   <addaction name="separator"/>
+   <addaction name="actionBold"/>
+   <addaction name="actionItalic"/>
+   <addaction name="actionUnderl"/>
+   <addaction name="actionStrike"/>
+   <addaction name="actionSuper"/>
+   <addaction name="actionSub"/>
   </widget>
   <action name="actionNew">
    <property name="icon">
@@ -277,14 +286,14 @@
     <string>Ctrl+Y</string>
    </property>
   </action>
-  <action name="actionInsertBuuletList">
+  <action name="actionInsertBulletList">
    <property name="icon">
     <iconset>
      <normalon>icons/bullet.png</normalon>
     </iconset>
    </property>
    <property name="text">
-    <string>InsertBuuletList</string>
+    <string>InsertBulletList</string>
    </property>
    <property name="toolTip">
     <string>Insert bullet list</string>
@@ -308,7 +317,479 @@
     <string>Ctrl+Shift+L</string>
    </property>
   </action>
+  <action name="actionFontColor">
+   <property name="icon">
+    <iconset>
+     <normalon>icons/font-color.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>fontColor</string>
+   </property>
+   <property name="toolTip">
+    <string>Change font color</string>
+   </property>
+  </action>
+  <action name="actionBackColor">
+   <property name="icon">
+    <iconset>
+     <normalon>icons/highlight.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>backColor</string>
+   </property>
+   <property name="toolTip">
+    <string>Change background color</string>
+   </property>
+  </action>
+  <action name="actionBold">
+   <property name="icon">
+    <iconset>
+     <normalon>icons/bold.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>bold</string>
+   </property>
+   <property name="toolTip">
+    <string>Bold</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionItalic">
+   <property name="icon">
+    <iconset>
+     <normalon>icons/italic.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>italic</string>
+   </property>
+   <property name="toolTip">
+    <string>Italic</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionUnderl">
+   <property name="icon">
+    <iconset>
+     <normalon>icons/underline.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>underl</string>
+   </property>
+   <property name="toolTip">
+    <string>Underline</string>
+   </property>
+  </action>
+  <action name="actionStrike">
+   <property name="icon">
+    <iconset>
+     <normalon>icons/strike.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>strike</string>
+   </property>
+   <property name="toolTip">
+    <string>Strike-out</string>
+   </property>
+  </action>
+  <action name="actionSuper">
+   <property name="icon">
+    <iconset>
+     <normalon>icons/superscript.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>super</string>
+   </property>
+   <property name="toolTip">
+    <string>Superscript</string>
+   </property>
+  </action>
+  <action name="actionSub">
+   <property name="icon">
+    <iconset>
+     <normalon>icons/subscript.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>sub</string>
+   </property>
+   <property name="toolTip">
+    <string>Subscript</string>
+   </property>
+  </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionNew</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>newResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionOpen</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSave</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>saveResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionPrint</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>printResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionPreview</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>previewResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionCut</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>cutResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionCopy</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>copyResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionPaste</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>pasteResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionUndo</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>undoResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionRedo</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>redoResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionInsertBulletList</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>bulletResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionInsertNumberedList</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>numberResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>textEdit</sender>
+   <signal>cursorPositionChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>cursorPositionResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>485</x>
+     <y>491</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionFontColor</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>fontColorResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionBackColor</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>backColorResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionBold</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>boldResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionItalic</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>italicResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionUnderl</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>underlResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionStrike</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>strikeResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSuper</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>superResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSub</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>subResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>newResp()</slot>
+  <slot>openResp()</slot>
+  <slot>saveResp()</slot>
+  <slot>printResp()</slot>
+  <slot>previewResp()</slot>
+  <slot>cutResp()</slot>
+  <slot>copyResp()</slot>
+  <slot>pasteResp()</slot>
+  <slot>undoResp()</slot>
+  <slot>redoResp()</slot>
+  <slot>bulletResp()</slot>
+  <slot>numberResp()</slot>
+  <slot>cursorPositionResp()</slot>
+  <slot>fontResp()</slot>
+  <slot>fontSizeResp()</slot>
+  <slot>fontColorResp()</slot>
+  <slot>backColorResp()</slot>
+  <slot>boldResp()</slot>
+  <slot>italicResp()</slot>
+  <slot>underlResp()</slot>
+  <slot>strikeResp()</slot>
+  <slot>superResp()</slot>
+  <slot>subResp()</slot>
+ </slots>
 </ui>

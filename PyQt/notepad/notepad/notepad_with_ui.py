@@ -34,20 +34,34 @@ class Notepad(QtGui.QMainWindow, Ui_MainWindow):
         # Set QTextEdit object as the central widget of the window.
         self.setCentralWidget(self.textEdit)
 
+        # Add widget to tool bar is not supported in QtDesigner,
+        # and in QtDesigner, it's impossible to distinguish specific separator,
+        # add widget with insertWidget interface,
+        # add separator after font size with insertSeparator interface.
+
+        # Font type
+        self.fontBox = QtGui.QFontComboBox(self)
+        self.Format.insertWidget(self.actionFontColor, self.fontBox)
+        
+        # Font size
+        self.fontSize = QtGui.QComboBox(self)
+        self.fontSize.setEditable(True)
+        self.fontSize.setMinimumContentsLength(3)
+        for i in range(6, 30):
+            self.fontSize.addItem(str(i))
+        self.Format.insertWidget(self.actionFontColor, self.fontSize)
+
+        self.Format.insertSeparator(self.actionFontColor)
+        
+
     def mapOperations(self):
-        self.actionNew.triggered.connect(self.newResp)
-        self.actionOpen.triggered.connect(self.openResp)
-        self.actionSave.triggered.connect(self.saveResp)
-        self.actionPrint.triggered.connect(self.printResp)
-        self.actionPreview.triggered.connect(self.previewResp)
-        self.actionCut.triggered.connect(self.cutResp)
-        self.actionCopy.triggered.connect(self.copyResp)
-        self.actionPaste.triggered.connect(self.pasteResp)
-        self.actionUndo.triggered.connect(self.undoResp)
-        self.actionRedo.triggered.connect(self.redoResp)
-        self.actionInsertBuuletList.triggered.connect(self.bulletResp)
-        self.actionInsertNumberedList.triggered.connect(self.numberResp)
-        self.textEdit.cursorPositionChanged.connect(self.cursorPositionResp)
+        # Actions added by QtDesigner,
+        # Response routine of every actions already done with QtDesigner.
+
+        # Response mapping couldn't configure with QtDesigner added from here.
+        # Widgets added by code.
+        self.fontBox.currentFontChanged.connect(self.fontResp)
+        self.fontSize.activated.connect(self.fontSizeResp)
 
     # Operation reponse routines start from here
     def newResp(self):
@@ -142,7 +156,47 @@ class Notepad(QtGui.QMainWindow, Ui_MainWindow):
 
         self.statusbar.showMessage("Line: {} | Column: {}".format(line,col))
 
+    def fontResp(self, font):
+        print sys._getframe().f_code.co_name
 
+        self.textEdit.setCurrentFont(font)
+
+    def fontSizeResp(self, fontsize):
+        print sys._getframe().f_code.co_name
+        # TODO:
+        # Bug: font size not changed for some selected fontsize
+
+        self.textEdit.setFontPointSize(fontsize)
+
+    def fontColorResp(self):
+        print sys._getframe().f_code.co_name
+
+        color = QtGui.QColorDialog.getColor()
+        self.textEdit.setTextColor(color)
+
+    def backColorResp(self):
+        print sys._getframe().f_code.co_name
+
+        color = QtGui.QColorDialog.getColor()
+        self.textEdit.setTextBackgroundColor(color)
+
+    def boldResp(self):
+        print sys._getframe().f_code.co_name
+
+    def italicResp(self):
+        print sys._getframe().f_code.co_name
+
+    def underlResp(self):
+        print sys._getframe().f_code.co_name
+
+    def strikeResp(self):
+        print sys._getframe().f_code.co_name
+
+    def superResp(self):
+        print sys._getframe().f_code.co_name
+
+    def subResp(self):
+        print sys._getframe().f_code.co_name
 
 def main():
     app = QtGui.QApplication(sys.argv)
