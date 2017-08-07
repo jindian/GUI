@@ -2,7 +2,7 @@
 
 import sys
 from PyQt4 import QtGui, QtCore, uic
-# from PyQt4.QtCore import Qt
+from PyQt4.QtCore import Qt
 
 # Qt Designer .ui file
 notepadUI = "notepad.ui"
@@ -242,14 +242,22 @@ class Notepad(QtGui.QMainWindow, Ui_MainWindow):
     def alignLeftResp(self):
         print sys._getframe().f_code.co_name
 
+        self.textEdit.setAlignment(Qt.AlignLeft)
+
     def alignCenterResp(self):
         print sys._getframe().f_code.co_name
+
+        self.textEdit.setAlignment(Qt.AlignCenter)
 
     def alignRightResp(self):
         print sys._getframe().f_code.co_name
 
+        self.textEdit.setAlignment(Qt.AlignRight)
+
     def alignJustifyResp(self):
         print sys._getframe().f_code.co_name
+
+        self.textEdit.setAlignment(Qt.AlignJustify)
 
     def indentResp(relf):
         print sys._getframe().f_code.co_name
