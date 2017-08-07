@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>942</width>
-    <height>696</height>
+    <width>1278</width>
+    <height>829</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,7 +29,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>971</width>
+      <width>1281</width>
       <height>651</height>
      </rect>
     </property>
@@ -43,7 +43,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>942</width>
+     <width>1278</width>
      <height>26</height>
     </rect>
    </property>
@@ -71,6 +71,9 @@
     <property name="title">
      <string>View</string>
     </property>
+    <addaction name="actionToolbar"/>
+    <addaction name="actionFormatbar"/>
+    <addaction name="actionStatusbar"/>
    </widget>
    <addaction name="menuOpen"/>
    <addaction name="menuEdit"/>
@@ -129,6 +132,12 @@
    <addaction name="actionStrike"/>
    <addaction name="actionSuper"/>
    <addaction name="actionSub"/>
+   <addaction name="actionAlignLeft"/>
+   <addaction name="actionAlignCenter"/>
+   <addaction name="actionAlignRight"/>
+   <addaction name="actionAlignJustify"/>
+   <addaction name="actionIndent"/>
+   <addaction name="actionDedent"/>
   </widget>
   <action name="actionNew">
    <property name="icon">
@@ -425,6 +434,114 @@
    </property>
    <property name="toolTip">
     <string>Subscript</string>
+   </property>
+  </action>
+  <action name="actionAlignLeft">
+   <property name="icon">
+    <iconset>
+     <normalon>icons/align-left.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>alignLeft</string>
+   </property>
+   <property name="toolTip">
+    <string>Align left</string>
+   </property>
+  </action>
+  <action name="actionAlignCenter">
+   <property name="icon">
+    <iconset>
+     <normalon>icons/align-center.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>alignCenter</string>
+   </property>
+   <property name="toolTip">
+    <string>Align center</string>
+   </property>
+  </action>
+  <action name="actionAlignRight">
+   <property name="icon">
+    <iconset>
+     <normalon>icons/align-right.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>alignRight</string>
+   </property>
+   <property name="toolTip">
+    <string>Align right</string>
+   </property>
+  </action>
+  <action name="actionAlignJustify">
+   <property name="icon">
+    <iconset>
+     <normalon>icons/align-justify.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>alignJustify</string>
+   </property>
+   <property name="toolTip">
+    <string>Align justify</string>
+   </property>
+  </action>
+  <action name="actionIndent">
+   <property name="icon">
+    <iconset>
+     <normalon>icons/indent.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>indent</string>
+   </property>
+   <property name="toolTip">
+    <string>Indent Area</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Tab</string>
+   </property>
+  </action>
+  <action name="actionDedent">
+   <property name="icon">
+    <iconset>
+     <normalon>icons/dedent.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>dedent</string>
+   </property>
+   <property name="toolTip">
+    <string>Dedent Area</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Backtab</string>
+   </property>
+  </action>
+  <action name="actionToolbar">
+   <property name="text">
+    <string>Toolbar</string>
+   </property>
+   <property name="toolTip">
+    <string>Toggle Toolbar</string>
+   </property>
+  </action>
+  <action name="actionFormatbar">
+   <property name="text">
+    <string>Formatbar</string>
+   </property>
+   <property name="toolTip">
+    <string>Toggle Formatbar</string>
+   </property>
+  </action>
+  <action name="actionStatusbar">
+   <property name="text">
+    <string>Statusbar</string>
+   </property>
+   <property name="toolTip">
+    <string>Toggle Statusbar</string>
    </property>
   </action>
  </widget>
@@ -766,6 +883,150 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionAlignLeft</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>alignLeftResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAlignCenter</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>alignCenterResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAlignRight</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>alignRightResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAlignJustify</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>alignJustifyResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionToolbar</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>toggleToolbarResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>638</x>
+     <y>414</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionFormatbar</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>toggleFormatbarResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>638</x>
+     <y>414</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionStatusbar</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>toggleStatusbarResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>638</x>
+     <y>414</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionIndent</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>indentResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>638</x>
+     <y>414</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionDedent</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>dedentResp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>638</x>
+     <y>414</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>newResp()</slot>
@@ -791,5 +1052,14 @@
   <slot>strikeResp()</slot>
   <slot>superResp()</slot>
   <slot>subResp()</slot>
+  <slot>alignLeftResp()</slot>
+  <slot>alignCenterResp()</slot>
+  <slot>alignRightResp()</slot>
+  <slot>alignJustifyResp()</slot>
+  <slot>indentResp()</slot>
+  <slot>dedentResp()</slot>
+  <slot>toggleToolbarResp()</slot>
+  <slot>toggleFormatbarResp()</slot>
+  <slot>toggleStatusbarResp()</slot>
  </slots>
 </ui>

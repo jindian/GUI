@@ -239,6 +239,33 @@ class Notepad(QtGui.QMainWindow, Ui_MainWindow):
             format.setVerticalAlignment(QtGui.QTextCharFormat.AlignSubScript)
         self.textEdit.textCursor().mergeCharFormat(format)
 
+    def alignLeftResp(self):
+        print sys._getframe().f_code.co_name
+
+    def alignCenterResp(self):
+        print sys._getframe().f_code.co_name
+
+    def alignRightResp(self):
+        print sys._getframe().f_code.co_name
+
+    def alignJustifyResp(self):
+        print sys._getframe().f_code.co_name
+
+    def indentResp(relf):
+        print sys._getframe().f_code.co_name
+
+    def dedentResp(self):
+        print sys._getframe().f_code.co_name
+
+    def toggleToolbarResp(self):
+        print sys._getframe().f_code.co_name
+
+    def toggleFormatbarResp(self):
+        print sys._getframe().f_code.co_name
+
+    def toggleStatusbarResp(self):
+        print sys._getframe().f_code.co_name
+
 def main():
     app = QtGui.QApplication(sys.argv)
 
