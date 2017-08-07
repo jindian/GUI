@@ -183,20 +183,61 @@ class Notepad(QtGui.QMainWindow, Ui_MainWindow):
     def boldResp(self):
         print sys._getframe().f_code.co_name
 
+        format = self.textEdit.textCursor().charFormat()
+        weight = format.fontWeight()
+        if weight == QtGui.QFont.Bold:
+            format.setFontWeight(QtGui.QFont.Normal)
+        else:
+            format.setFontWeight(QtGui.QFont.Bold)
+        self.textEdit.textCursor().mergeCharFormat(format)
+
     def italicResp(self):
         print sys._getframe().f_code.co_name
+        
+        format = self.textEdit.textCursor().charFormat()
+        italic = format.fontItalic()
+        format.setFontItalic(not italic)
+        self.textEdit.textCursor().mergeCharFormat(format)
+
 
     def underlResp(self):
         print sys._getframe().f_code.co_name
 
+        format = self.textEdit.textCursor().charFormat()
+        underl = format.fontUnderline()
+        format.setFontUnderline(not underl)
+        self.textEdit.textCursor().mergeCharFormat(format)
+
     def strikeResp(self):
         print sys._getframe().f_code.co_name
+
+        format = self.textEdit.textCursor().charFormat()
+        strike = format.fontStrikeOut()
+        format.setFontStrikeOut(not strike)
+        self.textEdit.textCursor().mergeCharFormat(format)
 
     def superResp(self):
         print sys._getframe().f_code.co_name
 
+        format = self.textEdit.textCursor().charFormat()
+        super = format.verticalAlignment()
+        if super == QtGui.QTextCharFormat.AlignSuperScript:
+            format.setVerticalAlignment(QtGui.QTextCharFormat.AlignNormal)
+        else:
+            format.setVerticalAlignment(QtGui.QTextCharFormat.AlignSuperScript)
+        self.textEdit.textCursor().mergeCharFormat(format)
+            
+
     def subResp(self):
         print sys._getframe().f_code.co_name
+
+        format = self.textEdit.textCursor().charFormat()
+        super = format.verticalAlignment()
+        if super == QtGui.QTextCharFormat.AlignSubScript:
+            format.setVerticalAlignment(QtGui.QTextCharFormat.AlignNormal)
+        else:
+            format.setVerticalAlignment(QtGui.QTextCharFormat.AlignSubScript)
+        self.textEdit.textCursor().mergeCharFormat(format)
 
 def main():
     app = QtGui.QApplication(sys.argv)
