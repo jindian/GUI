@@ -268,11 +268,26 @@ class Notepad(QtGui.QMainWindow, Ui_MainWindow):
     def toggleToolbarResp(self):
         print sys._getframe().f_code.co_name
 
+        if self.Options.isVisible():
+            self.Options.hide()
+        else:
+            self.Options.show()
+
     def toggleFormatbarResp(self):
         print sys._getframe().f_code.co_name
 
+        if self.Format.isVisible():
+            self.Format.hide()
+        else:
+            self.Format.show()
+
     def toggleStatusbarResp(self):
         print sys._getframe().f_code.co_name
+
+        if self.statusbar.isVisible():
+            self.statusbar.hide()
+        else:
+            self.statusbar.show()
 
 def main():
     app = QtGui.QApplication(sys.argv)
