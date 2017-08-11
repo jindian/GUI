@@ -22,13 +22,19 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="dialogs\find.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="dialogs\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="notepad_with_ui.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="notepad.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="notepad.ui" />
+    <Folder Include="dialogs\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

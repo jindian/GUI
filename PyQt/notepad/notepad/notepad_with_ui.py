@@ -259,35 +259,44 @@ class Notepad(QtGui.QMainWindow, Ui_MainWindow):
 
         self.textEdit.setAlignment(Qt.AlignJustify)
 
+    # TODO
     def indentResp(relf):
         print sys._getframe().f_code.co_name
 
+    # TODO
     def dedentResp(self):
         print sys._getframe().f_code.co_name
 
+    # Hide or show bars in notepad
     def toggleToolbarResp(self):
         print sys._getframe().f_code.co_name
 
         if self.Options.isVisible():
             self.Options.hide()
+            self.actionToolbar.setIconVisibleInMenu(False)
         else:
             self.Options.show()
+            self.actionToolbar.setIconVisibleInMenu(True)
 
     def toggleFormatbarResp(self):
         print sys._getframe().f_code.co_name
 
         if self.Format.isVisible():
             self.Format.hide()
+            self.actionFormatbar.setIconVisibleInMenu(False)
         else:
             self.Format.show()
+            self.actionFormatbar.setIconVisibleInMenu(True)
 
     def toggleStatusbarResp(self):
         print sys._getframe().f_code.co_name
 
         if self.statusbar.isVisible():
             self.statusbar.hide()
+            self.actionStatusbar.setIconVisibleInMenu(False)
         else:
             self.statusbar.show()
+            self.actionStatusbar.setIconVisibleInMenu(True)
 
 def main():
     app = QtGui.QApplication(sys.argv)
